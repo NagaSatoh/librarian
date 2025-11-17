@@ -1,0 +1,2 @@
+admin@example.com,admin123,librarian
+member1@example.com,pass123,member
