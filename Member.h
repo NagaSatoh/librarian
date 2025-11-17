@@ -73,7 +73,7 @@ public:
     bool searchBook(const std::string& keyword) {
         std::ifstream file("books.csv");
         if (!file.is_open()) {
-            std::cout << "[ERROR] Cannot open book.csv" << std::endl;
+            std::cout << "[ERROR] Cannot open books.csv" << std::endl;
             return false;
         }
 
@@ -122,6 +122,22 @@ public:
     bool updateMemberDetails()
     {
         cout << "Updating details for MemberID: " << memberID << endl;
+        
+        string newName, newEmail, newPhone;
+        
+        cout << "New Name (leave blank to keep current): ";
+        getline(cin, newName);
+        if (!newName.empty()) name = newName;
+
+        cout << "New Email (leave blank to keep current): ";
+        getline(cin, newEmail);
+        if (!newEmail.empty()) email = newEmail;
+
+        cout << "New Phone (leave blank to keep current): ";
+        getline(cin, newPhone);
+        if (!newPhone.empty()) phoneNumber = newPhone;
+
+        cout << "Profile updated.\n";
         return true;
     }
 
@@ -161,4 +177,5 @@ public:
     {
         borrowingHistory.push_back(b);
     }
+    vector<Borrow>& getBorrowingHistory() { return borrowingHistory; }
 };
